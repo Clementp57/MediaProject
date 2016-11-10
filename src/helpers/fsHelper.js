@@ -1,3 +1,5 @@
+'use strict';
+
 var fs = require('fs'),
     Promise = require("bluebird");
 
@@ -23,11 +25,12 @@ var getFileDescriptorsForPath = (path) => {
             } else {
                 var promiseChain = Promise.resolve(null);
                 for (var i = 0; i < items.length; i++) {
-                    var file = path + '/' + items[i];
-                    var fileName = items[i];
+                    let file = path + '/' + items[i];
+                    let fileName = items[i];
                     promiseChain = promiseChain.bind(fileName).then(() => {
                         return getFileStats(file).then((stats) => {
                             var size = stats["size"];
+                            console.log(fileName, size);
                             fileDescriptors.push({
                                 fileName: fileName,
                                 fileSize: size
