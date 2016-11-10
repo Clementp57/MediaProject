@@ -24,6 +24,6 @@ serverInstance.get('/', (req, res) => {
 serverInstance.use('/list', listRoute);
 
 // Creating Http Server
-serverInstance.listen((process.env.PORT || 80), () => {
+serverInstance.listen((process.env.PORT || 8003), () => {
     console.info('HTTP Server Instance up & running');
 });
