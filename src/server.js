@@ -39,7 +39,7 @@ serverInstance.use(bodyParser.urlencoded({
 
 serverInstance.use(express.static(path.join(__dirname, 'public')));
 
-serverInstance.get('/', (req, res) => {
+serverInstance.get('/mediaUpload', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'));
     //res.send('<html><body> <h1> It Works! </h1> </body></html>');
 });
