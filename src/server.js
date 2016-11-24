@@ -8,7 +8,8 @@ var express = require('express'),
     uploadRoute = require('./routes/upload'),
     mongodb = require('mongodb'),
     mongoose = require('mongoose'),
-    path = require('path');
+    path = require('path'),
+    fs = require('fs');
 
 
 var credentials = {
