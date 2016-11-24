@@ -10,7 +10,7 @@ router.get('/audio/:id', (req, res) => {
     Media.findById(req.params.id, (err, media) => {
         console.log(media, err); 
 
-        res.setHeader('Content-disposition', 'attachment; filename=' + media.name + media.mimeType.split("/")[1]);
+        res.setHeader('Content-disposition', 'attachment; filename=' + media.name + "." + media.mimeType.split("/")[1]);
         res.setHeader('Content-type', media.mimeType);
         
         var filestream = fs.createReadStream(media.fullPath);
