@@ -12,11 +12,11 @@ var express = require('express'),
     fs = require('fs');
 
 
-var credentials = {
-    key: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/cert.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/chain.pem')
-}
+// var credentials = {
+//     key: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/privkey.pem'),
+//     cert: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/cert.pem'),
+//     ca: fs.readFileSync('/etc/letsencrypt/live/clementpeyrabere.net/chain.pem')
+// }
 
 
 var API_BASE_PATH = "/api/v1";
@@ -53,9 +53,11 @@ serverInstance.use('/list', listRoute);
 serverInstance.use('/download', downloadRoute);
 serverInstance.use('/upload', uploadRoute);
 
-var httpsServer = https.createServer(credentials, serverInstance);
+// Uncomment to enable https (not working with localhost)
+//var httpsServer = https.createServer(credentials, serverInstance);
 
 // Creating Https Server
-httpsServer.listen((process.env.PORT || 8003), () => {
+//httpsServer.listen((process.env.PORT || 8003), () => {
+serverInstance.listen((process.env.PORT || 8003), () => {
     console.info('HTTP Server Instance up & running');
 });

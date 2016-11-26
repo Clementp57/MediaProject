@@ -12,6 +12,7 @@ router.get('/audio/:id', (req, res) => {
 
         res.setHeader('Content-disposition', 'attachment; filename=' + media.name + "." + media.mimeType.split("/")[1]);
         res.setHeader('Content-type', media.mimeType);
+        res.setHeader('Content-length', media.size);
         
         var filestream = fs.createReadStream(media.fullPath);
         filestream.pipe(res);
