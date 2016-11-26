@@ -5,7 +5,8 @@ var Media = new mongoose.Schema({
     size: Number,
     type: String,
     mimeType: String,
-    fullPath: String
+    fullPath: String,
+    coverImageURL: String
 });
 
 module.exports = mongoose.model('Media', Media);
