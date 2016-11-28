@@ -5,7 +5,7 @@ var path = require("path");
 var Media = require('../models/Media');
 
 router.get('/video', (req, res) => {
-    Media.find({ mimeType: "video/mp4"  }, (err, files) => {
+    Media.find({ mimeType: { $in : ["video/mp4", "video/quicktime"]}  }, (err, files) => {
         res.status(200).json(files);
     });
 });
